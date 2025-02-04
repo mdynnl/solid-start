@@ -5,7 +5,7 @@ import type { Asset } from "./types";
 
 const assetMap = {
   style: (props: { attrs: JSX.StyleHTMLAttributes<HTMLStyleElement>; children?: JSX.Element }) => (
-    <style {...props.attrs}>{props.children}</style>
+    <style {...props.attrs} innerHTML={props.children as any} />
   ),
   link: (props: { attrs: JSX.LinkHTMLAttributes<HTMLLinkElement> }) => <link {...props.attrs} />,
   script: (props: { attrs: JSX.ScriptHTMLAttributes<HTMLScriptElement>; key: string | undefined }) => {
